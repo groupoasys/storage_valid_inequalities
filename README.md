@@ -42,11 +42,12 @@ author = {{ {{ Authors }} }}
 ```
 * Repository:
 ```
-@misc{{ {{ Repository_Citation_Key }},
-author={{ {{ Repository_Author }} }},
-year={{ {{ Repository_Year }} }},
-title = {{ {{ Repository_Title }} }},
-howpublished = {{\url{{ {{ Repository_URL }} }} }}
+@misc{mygithub,
+author = {OASYS},
+journal = {GitHub repository},
+title = {Data and Code for Linear and Second-order-cone Valid Inequalities for Problems with Storage},
+year = 2025,
+url = "https://github.com/groupoasys/storage\_valid\_inequalities",
 }
 ```
 
