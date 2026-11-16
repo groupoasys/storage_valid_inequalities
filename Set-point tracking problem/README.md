@@ -1,6 +1,6 @@
 # storage_valid_inequalities
 
-The aim of this repository is to provide details of the data sets and code used in the related research titled *Linear and Second-order-cone Valid Inequalities for Problems with Storage*.
+The aim of this repository is to provide details of the data sets and code used in the related research titled *Second-Order Cone Valid Inequalities for Set-Point Tracking with Energy Storage*.
 
 ## Data and Code Description
 
@@ -8,9 +8,10 @@ The following files are included in this repository:
 * `ESS_data_SPTP.csv`: contains the 100 battery parameter configurations obtained from [1].
 * `PV_and_Wind_data_scenarios.csv`: includes 725 daily PV power profiles with hourly resolution, also obtained from [1].
 * `demand_profile.csv`: provides the household demand [1].
-* `scenarios_prices.xlsx`: contains the 10 price vectors from the Danish day-ahead electricity market (zone DK1), each representing a day with negative electricity prices. These days are: July 2, 2023; January 1, 2024; and June 2, 8, 9, 15, 16, 28, as well as July 4 and 7, 2024. The data is publicly available from the ENTSO-e Transparency Platform.
-* `setpoint_tracking_AMPL_Case_Study.py`: includes the basic code to run the case study based on the setpoint tracking problem.
-* `scheduling_AMPL_Case_Study.py`: contains the basic code to run the case study based on the storage scheduling problem.
+* `setpoint_tracking_letter.py`: contains the code to run the case study based on the set-point tracking problem. For each battery configuration in `ESS_data_SPTP.csv` and the PV profile selected by the SLURM array index, it solves the MIQP benchmark and the relaxations based on the hybrid convex hull (HCH) model of [1] (HCH-QP, HCH-SOC and HCH-PER) using AMPL with Gurobi and MOSEK, and stores the results in `results_stp_s<k>.csv`.
+* `envia.sh`: SLURM script used to parallelize the experiments on a computing cluster. It launches an array of 200 tasks, each one running `setpoint_tracking_letter.py` for a different PV production profile (and hence net demand profile) over all the battery configurations.
+* `read_results.py`: aggregates the results of all the SLURM tasks (files `results_stp_s*.csv`) and prints the summary table of the paper.
+* `resultados_stp.zip`: contains the results of the experiment, that is, the 200 files `results_stp_s<k>.csv` (one per PV profile) produced by `setpoint_tracking_letter.py`.
 
 ## References
 
@@ -23,7 +24,7 @@ The following files are included in this repository:
 
 ## Funding
 
-This work was supported by the Spanish Ministry of Science and Innovation (AEI/10.13039/501100011033) through project PID2023-148291NB-I00
+This work was supported by the Consejería de Universidad, Investigación e Innovación de la Junta de Andalucía through project DGP-PIDI-2024-00851. Juan M. Morales is with the research group OASYS, University of Malaga, Malaga 29071, Spain: juan.morales@uma.es. The author thankfully acknowledges the computer resources, technical expertise, and assistance provided by the SCBI (Supercomputing and Bioinformatics) center of the University of Málaga.
 
 ## How to cite the repo and the paper?
 
@@ -45,8 +46,8 @@ author = {{ {{ Authors }} }}
 @misc{mygithub,
 author = {OASYS},
 journal = {GitHub repository},
-title = {Data and Code for Linear and Second-order-cone Valid Inequalities for Problems with Storage},
-year = 2025,
+title = {Data and Code for Second-Order Cone Valid Inequalities for Set-Point Tracking with Energy Storage},
+year = 2026,
 url = "https://github.com/groupoasys/storage\_valid\_inequalities",
 }
 ```
