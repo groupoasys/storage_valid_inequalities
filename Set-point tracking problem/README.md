@@ -1,4 +1,4 @@
-# storage_valid_inequalities
+# Set-Point Tracking Problem
 
 The aim of this repository is to provide details of the data sets and code used in the related research titled *Second-Order Cone Valid Inequalities for Set-Point Tracking with Energy Storage*.
 
@@ -8,7 +8,7 @@ The following files are included in this repository:
 * `ESS_data_SPTP.csv`: contains the 100 battery parameter configurations obtained from [1].
 * `PV_and_Wind_data_scenarios.csv`: includes 725 daily PV power profiles with hourly resolution, also obtained from [1].
 * `demand_profile.csv`: provides the household demand [1].
-* `setpoint_tracking_letter.py`: contains the code to run the case study based on the set-point tracking problem. For each battery configuration in `ESS_data_SPTP.csv` and the PV profile selected by the SLURM array index, it solves the MIQP benchmark and the relaxations based on the hybrid convex hull (HCH) model of [1] (HCH-QP, HCH-SOC and HCH-PER) using AMPL with Gurobi and MOSEK, and stores the results in `results_stp_s<k>.csv`.
+* `setpoint_tracking_letter.py`: contains the code to run the case study based on the set-point tracking problem. For each battery configuration in `ESS_data_SPTP.csv` and the PV profile selected by the SLURM array index, it solves the MIQP benchmark and the relaxations based on HCH model of [1], namely, HCH-QP, HCH-SOC and HCH-PER, using AMPL with Gurobi and MOSEK, and stores the results in `results_stp_s<k>.csv`.
 * `envia.sh`: SLURM script used to parallelize the experiments on a computing cluster. It launches an array of 200 tasks, each one running `setpoint_tracking_letter.py` for a different PV production profile (and hence net demand profile) over all the battery configurations.
 * `read_results.py`: aggregates the results of all the SLURM tasks (files `results_stp_s*.csv`) and prints the summary table of the paper.
 * `resultados_stp.zip`: contains the results of the experiment, that is, the 200 files `results_stp_s<k>.csv` (one per PV profile) produced by `setpoint_tracking_letter.py`.
