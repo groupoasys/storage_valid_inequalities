@@ -1,6 +1,6 @@
 # Set-Point Tracking Problem
 
-The aim of this repository is to provide details of the data sets and code used in the related research titled *Second-Order Cone Valid Inequalities for Set-Point Tracking with Energy Storage*.
+The aim of this repository is to provide details of the data sets and code used in the related research titled *Second-Order Cone Valid Inequalities for Set-Point Tracking with Energy Storage* (preprint: [arXiv:2611.21526](https://arxiv.org/abs/2611.21526)).
 
 ## Data and Code Description
 
@@ -30,15 +30,16 @@ This work was supported by the Consejería de Universidad, Investigación e Inno
 
 If you want to cite the related paper or this repository, please use the following bib entries:
 
-* Article:
+* Article (preprint available at [arXiv:2611.21526](https://arxiv.org/abs/2611.21526)):
 ```
-@article{{ {{ Article_Citation_Key }},
-title = {{ {{ Article_Title }} }},
-journal = {{ {{ Journal_Name }} }},
-volume = {{ {{ Volume }} }},
-pages = {{ {{ Pages }} }},
-year = {{ {{ Year }} }},
-author = {{ {{ Authors }} }}
+@misc{morales2026secondorderconevalidinequalities,
+title = {Second-Order Cone Valid Inequalities for Set-Point Tracking with Energy Storage},
+author = {Juan M. Morales},
+year = {2026},
+eprint = {2611.21526},
+archivePrefix = {arXiv},
+primaryClass = {math.OC},
+url = {https://arxiv.org/abs/2611.21526}
 }
 ```
 * Repository:
